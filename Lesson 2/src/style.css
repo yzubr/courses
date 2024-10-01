@@ -1,12 +1,19 @@
 body {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
   font-family: Arial, Helvetica, sans-serif;
   color: white;
   background-color: #18191c;
 }
 
-.container {
-  width: 1360px;
-  margin: 0 auto;
+/* .container {
+  flex-basis: 1360px;
+} */
+
+header {
+  align-self: start;
 }
 
 ul {
@@ -19,11 +26,11 @@ nav li {
   border-bottom: 2px solid orange;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
+  transition: background-color 0.2s linear;
 }
 
 nav li:hover {
   background-color: orange;
-  transition: background-color 0.2s linear;
 }
 
 main {
@@ -37,8 +44,9 @@ h1 {
 
 .wrapper {
   display: flex;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
   gap: 20px;
+  align-items: center;
 }
 
 .card {
@@ -50,41 +58,39 @@ h1 {
   background-color: #252525;
 }
 
-.card__header {
+.card-header {
   margin-bottom: 20px;
 }
 
-.card__header h2 {
+.card-header h2 {
   margin-bottom: 20px;
   font-size: 22px;
   font-weight: 500;
 }
 
-.card__header p {
+.card-header p {
   text-align: right;
 }
 
-.main__content {
+.main-content {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.card__footer {
+.card-footer {
   margin-top: auto;
 }
 
-.card__footer p {
-  text-align: end;
+.card-footer p {
+  text-align: right;
 }
 
-.footer {
+/* .footer {
   width: 1360px;
   margin: 0 auto;
-}
+} */
 
 .footer a {
   border-bottom: 2px solid orange;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
 }
