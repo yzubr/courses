@@ -1,36 +1,19 @@
 body {
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  justify-content: center;
+  max-width: 940px;
+  margin: 0 auto;
   font-family: Arial, Helvetica, sans-serif;
   color: white;
   background-color: #18191c;
 }
 
-/* .container {
-  flex-basis: 1360px;
-} */
-
-header {
-  align-self: start;
-}
-
 ul {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 20px;
 }
 
 nav li {
   border-bottom: 2px solid orange;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-  transition: background-color 0.2s linear;
-}
-
-nav li:hover {
-  background-color: orange;
 }
 
 main {
@@ -44,16 +27,14 @@ h1 {
 
 .wrapper {
   display: flex;
-  flex-flow: row wrap;
+  flex-wrap: nowrap;
   gap: 20px;
-  align-items: center;
 }
 
 .card {
   display: flex;
   flex-direction: column;
-  width: 300px;
-  height: 420px;
+  min-height: 420px;
   padding: 20px;
   background-color: #252525;
 }
@@ -86,10 +67,11 @@ h1 {
   text-align: right;
 }
 
-/* .footer {
-  width: 1360px;
-  margin: 0 auto;
-} */
+.footer {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
 
 .footer a {
   border-bottom: 2px solid orange;
