@@ -1,0 +1,277 @@
+body {
+  position: relative;
+  background: rgb(23 23 23 / 100%);
+  color: rgb(238 238 236 / 100%);
+  font-family: Roboto, Arial, sans-serif;
+}
+
+p {
+  line-height: 24px;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  background: rgb(34 34 33 / 100%);
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 20px 32px;
+}
+
+.container {
+  display: flex;
+  gap: 64px;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+ .logo-circle:hover {
+  color: antiquewhite;
+} 
+
+.logo:hover{
+  color: antiquewhite;
+}
+
+
+.logo p {
+  font-weight: 700;
+}
+
+nav>ul {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+.downbar {
+  display: none;
+  position: absolute;
+  top: 72px;
+  left: 290px;
+  flex-direction: column;
+  min-width: 300px;
+  padding: 24px;
+  background: rgb(62 62 60 / 100%);
+  gap: 12px;
+}
+
+
+.active:hover .downbar {
+  display: flex;
+}
+
+img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1280px;
+  margin: 64px auto 0;
+  padding: 0 32px;
+  gap: 32px;
+}
+
+main a {
+  flex-basis: calc((100% - 32px * 3) / 4);
+} 
+
+.card {
+  display: flex;
+  align-items: end;
+  height: 300px;
+  padding: 20px;
+  border-radius: 12px;
+  background: url("assets/img/image.png") center / cover;
+} 
+
+
+.content {
+  width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+  background-color: rgb(255 255 255 / 70%);
+  color: rgb(34 34 33 / 100%);
+}
+
+h3 {
+  font-weight: 700;
+  line-height: 16px;
+}
+
+.modal {
+  display: none; 
+  
+  /* position: absolute; */
+  position: fixed;
+  top: calc(50vh - 160px);
+  left: calc(50vw - 320px);
+  width:640px;
+  height: 320px;
+  padding: 24px;
+  background: rgb(62 62 60 / 100%);
+  gap: 24px;
+}
+
+main>a:hover ~ .modal {
+  display: flex;
+}
+
+.modal img {
+  width: 220px;
+  height: 272px;
+  border-radius: 12px;
+}
+
+.modal-content h3{
+  margin-bottom: 16px;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+} 
+
+ /* .grid-container {
+  display: grid;
+  grid-template: repeat(4, 292px) / repeat(5, 138px);
+  grid-template-areas:
+    "s1 s2 s3 s3"
+    "s4 s2 s3 s3"
+    "s5 s6 s7 s8"
+    "s5 s6 s7 s8"
+    "s5 s6 s9 s9";
+  width: 1216px;
+  margin: 32px 0 120px;
+  gap: 16px;
+}
+
+.item1 {
+  grid-area: s1;
+  background: rgb(34 34 33 / 100%);
+}
+
+.item2 {
+  grid-area: s2;
+  background: rgb(34 34 33 / 100%);
+}
+
+.item3 {
+  grid-area: s3;
+  background: rgb(34 34 33 / 100%);
+}
+
+.item4 {
+  grid-area: s4;
+  background: rgb(34 34 33 / 100%);
+}
+
+.item5 {
+  grid-area: s5;
+  background: rgb(34 34 33 / 100%);
+}
+
+.item6 {
+  grid-area: s6;
+  background: rgb(34 34 33 / 100%);
+}
+
+.item7 {
+  grid-area: s7;
+  background: rgb(34 34 33 / 100%);
+}
+
+.item8 {
+  grid-area: s8;
+  background: rgb(34 34 33 / 100%);
+}
+
+.item9 {
+  grid-area: s9;
+  background: rgb(34 34 33 / 100%);
+} */
+
+.flex-container {
+  display: flex;
+  flex-grow: 1;
+  height: 762px;
+  margin: 32px 0 120px;
+  gap: 16px;
+}
+
+.left-column{
+  display: flex;
+  flex-grow: 1;
+  gap: 16px;
+}
+
+.right-column {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 16px;
+}
+
+.left__first-column {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 16px;
+}
+
+.first-column__row {
+  height: 138px;
+  background: rgb(34 34 33 / 100%);
+}
+
+.long-column {
+  flex-basis: calc(100% - (138px * 2 + 16px * 2));
+  background: rgb(34 34 33 / 100%);
+}
+
+.left__second-column {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.short-column {
+  width: 100%;
+  height: 292px;
+  background: rgb(34 34 33 / 100%);
+}
+
+.wide-row {
+  height: calc(138px * 2 + 16px);
+  background: rgb(34 34 33 / 100%);
+}
+
+.short-column__container {
+  display: flex;
+  flex-grow: 1;
+  gap: 16px;
+}
+
+.thin-row{
+  height: 138px;
+  background: rgb(34 34 33 / 100%);
+}
+
