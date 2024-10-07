@@ -1,0 +1,8 @@
+{
+  "name": "lesson-11",
+  "devDependencies": {
+    "@shcherbin/eslint-config-node": "^0.1.1",
+    "eslint": "^8.57.1"
+  },
+  "private": true
+}
