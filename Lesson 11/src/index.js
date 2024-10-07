@@ -4,25 +4,21 @@ const string10 = 'agdjgfkshv'
 
 console.log(string10.length)
 
-// string reverce
+// string reverse
 
-function reverseStr(string) {
+function reverseString(string) {
   return string.split('').reverse().join('')
 }
 
-console.log(reverseStr(string10))
+console.log(reverseString(string10))
 
 // substr
 
-function findSubStr(string, substring) {
-  if (string.indexOf(substring) !== -1) {
-    console.log(true)
-  } else {
-    console.log(false)
-  }
+function findSubstring(string, substring) {
+  return (string.includes(substring))
 }
 
-findSubStr('мама мыла раму', 'ла')
+findSubstring('мама мыла раму', 'ла')
 
 // array
 
@@ -36,8 +32,8 @@ console.log(array)
 
 // fuction array-reverse
 
-function reverceArray(array1) {
-  console.log(array1.reverse())
+function reverseArray(initialArray) {
+  console.log(initialArray.reverse())
 }
 
-reverceArray([1, 2, 3, 4, 5])
+reverseArray([1, 2, 3, 4, 5])
