@@ -33,6 +33,7 @@ h1 {
 
 .card {
   display: flex;
+  flex-basis: calc((940px - 40px) / 3);
   flex-direction: column;
   min-height: 420px;
   padding: 20px;
@@ -68,9 +69,7 @@ h1 {
 }
 
 .footer {
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: center;
+  text-align: center;
 }
 
 .footer a {
