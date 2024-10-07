@@ -1,26 +1,29 @@
-const product = {
+const apple = {
   name: 'apple',
   price: 10,
-  quantity: 3,
+  quantity: 3
 }
-console.log(product)
 
-if (product.quantity === 0) {
+console.log(apple)
+
+if (apple.quantity === 0) {
   console.log('нет товара')
-} else if (product.quantity > 10) {
-  console.log('много товара')
-} else if (product.quantity > 0 && product.quantity <= 10) {
+} else if (apple.quantity <= 10) {
   console.log('мало товара')
+} else {
+  console.log('много товара')
 }
 
-function arg(a) {
-  console.log(`${a.name} стоит ${a.price} $`)
+function showProductNamePrice(product) {
+  console.log(`${product.name} стоит ${product.price} $`)
 }
 
-arg(product)
+showProductNamePrice(apple)
 
 let sum = 0
+
 for (let index = 0; index <= 10; index += 1) {
   sum += index
 }
+
 console.log(`сумма от 1 до 10 равна ${sum}`)
