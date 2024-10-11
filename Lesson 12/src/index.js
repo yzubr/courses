@@ -3,24 +3,24 @@
 let number = 0
 
 while (number <= 20) {
+  if (number === 10 || number === 13) {
+    number += 1
+    continue
+  }
   console.log(number)
   if (number === 15) {
     break
   }
   number += 1
-  // if (a === 10) {
-  //   continue
-  // }
 }
 
 // 2
 function findEvenNumber(number1) {
-  if (number1 % 2 === 0) {
-    return true
-  } return false
+  return number1 % 2 === 0
 }
-findEvenNumber(16)
-findEvenNumber(7)
+
+console.log(findEvenNumber(16))
+console.log(findEvenNumber(7))
 
 // 3
 
@@ -30,9 +30,8 @@ const users = [
   { name: 'Charlie', age: 35 }
 ]
 
-users.forEach((element) => {
-  console.log(`Имя пользователя: ${element.name}, Возраст: 
-    ${element.age}`)
+users.forEach((user) => {
+  console.log(`Имя пользователя: ${user.name}, Возраст: ${user.age}`)
 })
 
 // 4
@@ -43,7 +42,7 @@ const products = [
   { name: 'Tablet', price: 300 }
 ]
 
-const productsWithNewPrice = products.map((element) => ({ ...element, price: element.price * 1.1 }))
+const productsWithNewPrice = products.map((product) => ({ ...product, price: product.price * 1.1 }))
 console.log(productsWithNewPrice)
 
 // 5
@@ -54,8 +53,8 @@ const tasks = [
   { title: 'Task 3', completed: true }
 ]
 
-const newTasks = tasks.filter((element) => element.completed !== false)
-console.log(newTasks)
+const completedTasks = tasks.filter((task) => task.completed)
+console.log(completedTasks)
 
 // 6
 
@@ -65,7 +64,7 @@ const students = [
   { name: 'Alex', grade: 78 }
 ]
 
-console.log(students.sort((a, b) => a.grade - b.grade))
+console.log(students.toSorted((a, b) => a.grade - b.grade))
 
 // 7
 
@@ -75,7 +74,7 @@ const books = [
   { title: 'To Kill a Mockingbird', author: 'Harper Lee' }
 ]
 
-console.log(books.find((e) => e.author === 'George Orwell'))
+console.log(books.find((book) => book.author === 'George Orwell'))
 
 // 8
 
@@ -85,16 +84,19 @@ const cars = [
   { model: 'Audi', color: 'black' }
 ]
 
-function contaisnColor(array, color) {
-  let res
-  array.forEach((e) => {
-    if (e.color === color) res = true
-    return res
+function containsColor(carsArray, color) {
+  let carExists = false
+
+  carsArray.forEach((car) => {
+    if (car.color === color) {
+      carExists = true
+    }
   })
-  console.log(res)
+
+  return carExists
 }
 
-contaisnColor(cars, 'red')
+console.log(containsColor(cars, 'red'))
 
 // 9
 const purchases = [
@@ -103,6 +105,6 @@ const purchases = [
   { item: 'Phone', date: '2023-09-01' }
 ]
 
-const newArray = purchases.toReversed()
+const reversedPurchases = purchases.toReversed()
 
-console.log(newArray)
+console.log(reversedPurchases)
