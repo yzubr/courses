@@ -1,0 +1,113 @@
+body {
+  --sand-2: rgb(25 25 24 / 100%);
+  --sand-12: rgb(238 238 236 / 100%);
+  --bronze-9: rgb(161 128 114 / 100%);
+  --bronze-11: rgb(212 179 165 / 100%);
+
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  color: var(--sand-12);
+  background-color: var(--sand-2);
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 64px;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.img__container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 320px;
+}
+
+.img__carusel {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 24px;
+  overflow: auto;
+  overscroll-behavior: initial;
+}
+
+::-webkit-scrollbar {
+  height: 0;
+}
+
+.img__carusel img {
+  max-width: 120px;
+}
+
+.content {
+  flex-basis: 480px;
+}
+
+.descripton {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+h1 {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24.2px;
+  color: var(--sand-12);
+  text-align: left;
+}
+
+p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 25.6px;
+  color: var(--sand-12);
+  text-align: left;
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 28.8px;
+  color: var(--sand-12);
+  text-align: left;
+}
+
+button {
+  width: 134px;
+  padding: 8px 24px;
+  color: var(--sand-2);
+  background: var(--bronze-11);
+  border-radius: 10px;
+}
+
+button:hover {
+  background: var(--bronze-9);
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+summary {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 19.36px;
+  text-align: left;
+}
+
+summary::after {
+  content: url("/src/assets/icons/Vector.png");
+}
+
+details p {
+  margin-top: 24px;
+}
