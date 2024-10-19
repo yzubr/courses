@@ -12,11 +12,11 @@ const products = [
   { id: 3, name: 'Часы', inStock: false }
 ]
 
-function productInStock(productsArray) {
-  return productsArray.some((product) => product.inStock === true)
+function isproductInStock(productsArray) {
+  return productsArray.some((product) => product.inStock)
 }
 
-console.log(productInStock(products))
+console.log(isproductInStock(products))
 
 // 3
 
@@ -27,16 +27,16 @@ const transactions = [
   { id: 4, type: 'expense', amount: 50 }
 ]
 
-function totalBalance(transactione) {
-  console.log(transactione.reduce((summary, currenTransaction) => {
+function calculateTotalBalance(transactionsArray) {
+  console.log(transactionsArray.reduce((summary, currenTransaction) => {
     if (currenTransaction.type === 'income') {
       summary += currenTransaction.amount
-    } else summary -= currenTransaction.amount
+    } else { summary -= currenTransaction.amount }
     return summary
   }, 0))
 }
 
-totalBalance(transactions)
+calculateTotalBalance(transactions)
 
 // 4
 
@@ -47,10 +47,10 @@ const user = {
 }
 
 function showObjectKeysValues(object) {
-  console.log(Object.entries(object))
+  return Object.entries(object)
 }
 
-showObjectKeysValues(user)
+console.log(showObjectKeysValues(user))
 
 // 5
 
@@ -60,10 +60,9 @@ const cart = {
   orange: 1
 }
 
-function showProductsInReceiptFormate(goods) {
-  const goodsArray = Object.entries(goods)
-  goodsArray.forEach((good) => {
-    console.log(`${good[0]}: ${good[1]} шт.`)
+function showProductsInReceiptFormate(products) {
+  Object.entries(products).forEach(([product, count]) => {
+    console.log(`${product}: ${count} шт.`)
   })
 }
 
@@ -98,13 +97,24 @@ function checkAge(age) {
 }
 
 try {
-  const userAge = 16
-  console.log(checkAge(userAge))
+  console.log(checkAge(16))
 } catch (error) {
   console.log('Ошибка:', error.message)
 }
 
-// 8 не понимаю как реализовать. Пользоваться чатGPT?
+// 8
+
+function checkNumber(number) {
+  return new Promise((resolve, reject) => {
+    if (number > 10) {
+      resolve(console.log('Число больше 10'))
+    } else {
+      reject(new Error('Число 10 или меньше'))
+    }
+  })
+}
+
+checkNumber(12)
 
 // 9
 
