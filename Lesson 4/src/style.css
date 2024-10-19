@@ -3,6 +3,8 @@ body {
   background: rgb(23 23 23 / 100%);
   color: rgb(238 238 236 / 100%);
   font-family: Roboto, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
 }
 
 p {
@@ -37,11 +39,11 @@ header {
 }
 
  .logo-circle:hover {
-  color: antiquewhite;
+  color: rgb(250 235 215);
 } 
 
 .logo:hover{
-  color: antiquewhite;
+  color: rgb(250 235 215);
 }
 
 
@@ -117,8 +119,6 @@ h3 {
 
 .modal {
   display: none; 
-  
-  /* position: absolute; */
   position: fixed;
   top: calc(50vh - 160px);
   left: calc(50vw - 320px);
@@ -229,14 +229,14 @@ section {
   gap: 16px;
 }
 
-.left__first-column {
+.left-first-column {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
   gap: 16px;
 }
 
-.first-column__row {
+.first-column-row {
   height: 138px;
   background: rgb(34 34 33 / 100%);
 }
@@ -246,7 +246,7 @@ section {
   background: rgb(34 34 33 / 100%);
 }
 
-.left__second-column {
+.left-second-column {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -264,7 +264,7 @@ section {
   background: rgb(34 34 33 / 100%);
 }
 
-.short-column__container {
+.short-column-container {
   display: flex;
   flex-grow: 1;
   gap: 16px;
