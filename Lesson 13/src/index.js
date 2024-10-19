@@ -12,11 +12,11 @@ const products = [
   { id: 3, name: 'Часы', inStock: false }
 ]
 
-function isproductInStock(productsArray) {
+function isProductInStock(productsArray) {
   return productsArray.some((product) => product.inStock)
 }
 
-console.log(isproductInStock(products))
+console.log(isProductInStock(products))
 
 // 3
 
@@ -28,12 +28,11 @@ const transactions = [
 ]
 
 function calculateTotalBalance(transactionsArray) {
-  console.log(transactionsArray.reduce((summary, currenTransaction) => {
-    if (currenTransaction.type === 'income') {
-      summary += currenTransaction.amount
-    } else { summary -= currenTransaction.amount }
-    return summary
-  }, 0))
+  console.log(transactionsArray.reduce((summary, currenTransaction) => (
+    currenTransaction.type === 'income'
+      ? summary + currenTransaction.amount
+      : summary - currenTransaction.amount
+  ), 0))
 }
 
 calculateTotalBalance(transactions)
@@ -60,13 +59,13 @@ const cart = {
   orange: 1
 }
 
-function showProductsInReceiptFormate(products) {
+function showProductsInReceiptFormat(products) {
   Object.entries(products).forEach(([product, count]) => {
     console.log(`${product}: ${count} шт.`)
   })
 }
 
-showProductsInReceiptFormate(cart)
+showProductsInReceiptFormat(cart)
 
 // 6
 
@@ -107,14 +106,16 @@ try {
 function checkNumber(number) {
   return new Promise((resolve, reject) => {
     if (number > 10) {
-      resolve(console.log('Число больше 10'))
+      resolve('Число больше 10')
     } else {
       reject(new Error('Число 10 или меньше'))
     }
   })
 }
 
-checkNumber(12)
+(async () => {
+  console.log(await checkNumber(12))
+})()
 
 // 9
 
@@ -132,10 +133,13 @@ async function fetchProducts() {
   try {
     const response = await fetch('https://dummyjson.com/products?limit=10&select=title,price')
     const result = await response.json()
-    console.log(result.products[0])
+    return result.products[0]
   } catch (error) {
     console.error('Не удалось получить данные', error)
+    throw error
   }
 }
 
-console.log(fetchProducts())
+(async () => {
+  console.log(await fetchProducts())
+})()
