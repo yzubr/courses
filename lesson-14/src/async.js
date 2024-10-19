@@ -13,16 +13,16 @@
     return posts
   }
 
-  async function fetchUsersById(userId) {
+  async function fetchUserById(userId) {
     const response = await fetch(`https://dummyjson.com/users/${userId}`)
     const user = await response.json()
     return user
   }
 
-  async function obertka() {
+  async function fetchPostsWithUsers() {
     const posts = await fetchPosts()
-    const arrayOfRetchFuctions = posts.map((post) => fetchUsersById(post.userId))
-    const users = await Promise.all(arrayOfRetchFuctions)
+    const arrayOfFetchFuctions = posts.map((post) => fetchUserById(post.userId))
+    const users = await Promise.all(arrayOfFetchFuctions)
     console.log(users)
     console.log(posts.map((post, index) => {
       const result = {
@@ -37,6 +37,6 @@
     }))
   }
 
-  obertka()
+  fetchPostsWithUsers()
 }
 )()
