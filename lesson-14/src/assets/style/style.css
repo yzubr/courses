@@ -1,0 +1,35 @@
+body {
+  font-family: Inter, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: white;
+  background-color: black;
+}
+
+ul {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 40px;
+}
+
+.article {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 50px;
+  padding: 40px;
+}
+
+aside {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 40px;
+}
+
+button {
+  cursor: pointer;
+  border: solid white 1px;
+}
+
+.is-hidden {
+  display: none;
+}
