@@ -6,13 +6,14 @@ productsArray.forEach((element) => {
   element.style.textDecoration = 'underline'
 })
 
-const article = document.querySelector('aside')
+const aside = document.querySelector('aside')
 
 function addButton(textInButton, eventForButton) {
   const newButton = document.createElement('button')
+  newButton.setAttribute('type', 'button')
   newButton.innerText = textInButton
   newButton.onclick = eventForButton
-  article.appendChild(newButton)
+  aside.appendChild(newButton)
 }
 
 function changeFirstProduct() {
@@ -20,7 +21,7 @@ function changeFirstProduct() {
 }
 
 function hiddenThirdProduct() {
-  productsArray[2].classList.toggle('is-hidden')
+  productsArray[2].classList.add('is-hidden')
 }
 
 function addNewProduct() {
@@ -31,4 +32,4 @@ function addNewProduct() {
 
 addButton('Изменить первый продукт', changeFirstProduct)
 addButton('Скрыть третий продукт', hiddenThirdProduct)
-addButton('Добавить четвертый продукт', addNewProduct)
+addButton('Добавить планшет', addNewProduct)
