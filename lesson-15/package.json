@@ -1,0 +1,16 @@
+{
+  "name": "lesson-15",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@shcherbin/eslint-config-node": "^0.2.0",
+    "eslint": "^8.57.1"
+  }
+}
