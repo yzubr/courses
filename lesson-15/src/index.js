@@ -21,7 +21,7 @@
   // 4
   async function getCategoryProducts(arrayOfCategories, nameOfCategory) {
     const category = arrayOfCategories.find((categoryItem) => categoryItem.name === nameOfCategory)
-    if (category !== undefined) {
+    if (category) {
       const response = await fetch(category.url)
       const listOfProducts = await response.json()
       return listOfProducts.products.map((product) => ({
@@ -31,34 +31,24 @@
     } return `категория ${nameOfCategory} не найдена`
   }
 
-  getCategoryProducts(listOfCategories, 'Electronics').then((result) => {
-    console.log(result)
-  })
-
-  getCategoryProducts(listOfCategories, 'Groceries').then((result) => {
-    console.log(result)
-  })
+  console.log(await getCategoryProducts(listOfCategories, 'Electronics'))
+  console.log(await getCategoryProducts(listOfCategories, 'Groceries'))
 
   // 5
-  async function fetchProductsNamesAndPrises(arrayOfCategories, nameOfCategory) {
-    const category = arrayOfCategories.find((categoryItem) => categoryItem.name === nameOfCategory)
-    if (category !== undefined) {
+  async function fetchProductsNamesAndPrices(categories, categoryName) {
+    const category = categories.find(({ name }) => name === categoryName)
+    if (category) {
       const response = await fetch(category.url)
-      const listOfProducts = await response.json()
-      return Object.fromEntries(listOfProducts.products.map((product) => [product.title, product.price]))
-    } return `категория ${nameOfCategory} не найдена`
+      const { products } = await response.json()
+      return Object.fromEntries(products.map(({ price, title }) => [title, price]))
+    }
+    return `категория ${categoryName} не найдена`
   }
 
-  fetchProductsNamesAndPrises(listOfCategories, 'Electronics').then((result) => {
-    console.log(result)
-  })
-
-  fetchProductsNamesAndPrises(listOfCategories, 'Groceries').then((result) => {
-    console.log(result)
-  })
+  console.log(await fetchProductsNamesAndPrices(listOfCategories, 'Electronics'))
+  console.log(await fetchProductsNamesAndPrices(listOfCategories, 'Groceries'))
 
   // 6
-
   async function getAndGroupsProductByCategory() {
     const response = await fetch('https://dummyjson.com/products?limit=20&select=id,title,category')
     const data = await response.json()
@@ -72,69 +62,67 @@
       })
       return acc
     }, {})
-    console.log(groupedByCategory)
+    return groupedByCategory
   }
-  getAndGroupsProductByCategory()
+  console.log(await getAndGroupsProductByCategory())
 
   // 7
-  async function fetchListOFProductsCountByCategories(category) {
+  async function getCategoryProductsCount(category) {
     const response = await fetch(`https://dummyjson.com/products/category/${category}`)
-    const listOfProducts = await response.json()
-    return listOfProducts.products.length
+    const { products } = await response.json()
+    return products.length
   }
 
-  async function getAarrayOfCategories() {
+  async function getProductCategories() {
     const response = await fetch('https://dummyjson.com/products?limit=20&select=title,category')
-    const data = await response.json()
-    const arrayOfCategories = data.products.reduce((acc, product) => {
-      if (acc.includes(product.category)) {
-        return acc
-      } return [...acc, product.category]
-    }, [])
-    return arrayOfCategories
+    const { products } = await response.json()
+    return products.reduce((acc, { category }) => (
+      acc.includes(category) ? acc : [...acc, category]
+    ), [])
   }
 
-  async function getProductByCategoryAndRerurnQuantity() {
-    const arrayOfCategories = await getAarrayOfCategories()
-    console.log(arrayOfCategories)
-    const productGroupsCountFetchArray = arrayOfCategories.map((category) => fetchListOFProductsCountByCategories(category))
-    console.log(productGroupsCountFetchArray)
-    const productsInSameGropsCount = await Promise.all(productGroupsCountFetchArray)
-    console.log('same products categories count', productsInSameGropsCount)
-    console.log(Object.fromEntries(
-      arrayOfCategories.map((tag, index) => [tag, productsInSameGropsCount[index]])
-    ))
+  async function getProductCategoriesProductsCount() {
+    const categories = await getProductCategories()
+    console.log(categories)
+    const productsInSameGroupsCount = await Promise.all(categories.map((category) => (
+      getCategoryProductsCount(category)
+    )))
+    console.log('same products categories count', productsInSameGroupsCount)
+
+    return Object.fromEntries(
+      categories.map((category, index) => [category, productsInSameGroupsCount[index]])
+    )
   }
-  getProductByCategoryAndRerurnQuantity()
+
+  console.log(await getProductCategoriesProductsCount())
 
   // 8
-  async function getProductsByGroup(category) {
+  async function getProductsByCategory(category) {
     const response = await fetch(`https://dummyjson.com/products/category/${category}`)
-    const listOfProducts = await response.json()
-    return listOfProducts.products
+    const { products } = await response.json()
+    return products
   }
 
-  async function fetchListOfProductsAndReturnPricesInGroup() {
-    const arrayOfCategories = await getAarrayOfCategories()
-    console.log(arrayOfCategories)
-    const productGroupsCountFetchArray = arrayOfCategories.map((category) => getProductsByGroup(category))
-    console.log(productGroupsCountFetchArray)
-    const productsInSameGrops = await Promise.all(productGroupsCountFetchArray)
-    // console.log('products sort by categories', productsInSameGrops)
-    const tileofproductsAndPrices = productsInSameGrops.map((arrayOfProducts) => {
-      const arrayOfTitles = arrayOfProducts.map((product) => product.title)
-      const arrayOfPrices = arrayOfProducts.map((product) => product.price)
-      return {
-        products: arrayOfTitles,
-        cheapestPrice: Math.min(...arrayOfPrices),
-        mostExpensivePrice: Math.max(...arrayOfPrices),
-        averagePrice: +(arrayOfPrices.reduce((acc, price) => acc + price, 0) / arrayOfPrices.length).toFixed(2)
-      }
-    })
-    console.log(tileofproductsAndPrices)
-    console.log(Object.fromEntries(
-      arrayOfCategories.map((category, index) => [category, tileofproductsAndPrices[index]])
-    ))
+  async function getCategoriesProductsInformation() {
+    const categories = await getProductCategories()
+    const productsByCategories = await Promise.all(categories.map((category) => (
+      getProductsByCategory(category)
+    )))
+
+    return Object.fromEntries(
+      categories.map((category, index) => {
+        const products = productsByCategories[index]
+        const prices = products.map(({ price }) => price)
+
+        return [category, {
+          products: products.map(({ title }) => title),
+          cheapestPrice: Math.min(...prices),
+          mostExpensivePrice: Math.max(...prices),
+          averagePrice: (prices.reduce((acc, price) => acc + price, 0) / products.length).toFixed(2)
+        }]
+      })
+    )
   }
-  fetchListOfProductsAndReturnPricesInGroup()
+
+  console.log(await getCategoriesProductsInformation())
 })()
