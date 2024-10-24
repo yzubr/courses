@@ -1,0 +1,24 @@
+body {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 50px;
+  color: rgb(255, 255, 255);
+  font-family: "Inter", Arial, sans-serif;
+  background-color: black;
+}
+
+button {
+  border: solid rgb(255, 255, 255) 1px;
+  padding: 20px 40px;
+  cursor: pointer;
+}
+
+article {
+  max-width: 300px;
+  padding: 20px;
+}
+
+span {
+  font-weight: 700;
+}
