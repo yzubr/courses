@@ -9,8 +9,8 @@ changeContent.addEventListener('click', () => {
 })
 
 changeElement.addEventListener('click', () => {
-  document.querySelectorAll('article')[0].firstElementChild.outerHTML = `
- <p>Я <p> не обернутое в <a></p>`
+  document.querySelector('#element-for-change').outerHTML = `
+ <div>Я div<div>`
 })
 
 // 3
@@ -25,4 +25,18 @@ document.querySelector('#accept-response').addEventListener('click', () => {
 document.querySelector('#form-4').addEventListener('submit', (event) => {
   event.preventDefault()
   console.log(document.getElementById('field-input').value)
+})
+
+// 5
+const resultOfFindingProducts = document.querySelector('.result-of-finding-products')
+document.querySelector('.find-products').addEventListener('submit', async (event) => {
+  event.preventDefault()
+  console.log(document.querySelector('#find-product-input').value)
+  const response = await fetch(`https://dummyjson.com/products/search?q=${document.querySelector('#find-product-input').value}`)
+  const result = await response.json()
+  result.products.forEach((product) => {
+    const productHTML = document.createElement('p')
+    productHTML.innerText = `наименование товара: ${product.title}`
+    resultOfFindingProducts.appendChild(productHTML)
+  })
 })

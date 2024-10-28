@@ -1,11 +1,22 @@
 body {
   display: flex;
+  flex-direction: column;
   flex-wrap: nowrap;
   justify-content: center;
+  align-items: center;
   gap: 50px;
   color: rgb(255, 255, 255);
   font-family: "Inter", Arial, sans-serif;
   background-color: black;
+  font-size: 16px;
+  line-height: 1.5rem;
+}
+
+.block-changing {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
 }
 
 button {
@@ -21,4 +32,20 @@ article {
 
 span {
   font-weight: 700;
+}
+
+input {
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0 , 0);
+}
+
+input::placeholder {
+  color: rgb(67, 63, 63, 50%);
+}
+
+.result-of-finding-products {
+  max-width: 1260px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
 }

@@ -7,14 +7,13 @@ settings:
 importers:
 
   .:
-    dependencies:
-      '@shcherbin/stylelint-config':
-        specifier: ^0.2.0
-        version: 0.2.0(postcss@8.4.47)(stylelint@16.10.0)
     devDependencies:
       '@shcherbin/eslint-config-node':
         specifier: ^0.2.0
         version: 0.2.0(eslint-plugin-jsx-a11y@6.10.1(eslint@8.57.1))(eslint-plugin-react-hooks@4.6.2(eslint@8.57.1))(eslint-plugin-react@7.37.1(eslint@8.57.1))(eslint@8.57.1)
+      '@shcherbin/stylelint-config':
+        specifier: ^0.2.0
+        version: 0.2.0(postcss@8.4.47)(stylelint@16.10.0)
       eslint:
         specifier: ^8.57.1
         version: 8.57.1
