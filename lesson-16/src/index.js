@@ -4,7 +4,7 @@ const changeElement = document.querySelector('#change-element')
 console.log(document.querySelectorAll('article')[0].firstElementChild)
 
 changeContent.addEventListener('click', () => {
-  document.querySelectorAll('article')[0].firstElementChild.innerHTML = `
+  document.querySelector('.content-for-changing').innerHTML = `
  <p>Я содержимое которое <span>изменили</span></p>`
 })
 

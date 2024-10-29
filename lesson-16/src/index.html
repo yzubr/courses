@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,9 +10,7 @@
 <body>
   <article class="block-changing">
     <article>
-      <a href="">
-        <p>Я содержимое которое нужно изменить</p>
-      </a>
+      <a href="" class="content-for-changing">Я содержимое которое нужно изменить</a>
       <button type="button" id="change-content">Изменить содержимое</button>
     </article>
     <article>
@@ -23,19 +20,18 @@
       <button type="button" id="change-element">Заменить элемент</button>
     </article>
   </article>
-    <button type="button" id="accept-response">Задать вопрос и вывести ответ</button>
-    <form action="" method="get" id="form-4">
-      <label for="field-input">Напишите что-нибудь</label>
-      <input type="text" name="text" id="field-input" placeholder="Любой текст">
-      <button type="submit" id="#submit">Отправить</button>
-    </form>
-    <form action="" method="get" class="find-products">
-      <label for="find-product-input">Напишите название товара</label>
-      <input type="text" name="text" id="find-product-input" placeholder="Phone">
-      <button type="submit" class="find-product-btn">Искать товар!</button>
-    </form>
-    <article class="result-of-finding-products"></article>
+  <button type="button" id="accept-response">Задать вопрос и вывести ответ</button>
+  <form action="" method="get" id="form-4">
+    <label for="field-input">Напишите что-нибудь</label>
+    <input type="text" name="text" id="field-input" placeholder="Любой текст">
+    <button type="submit" id="#submit">Отправить</button>
+  </form>
+  <form action="" method="get" class="find-products">
+    <label for="find-product-input">Напишите название товара</label>
+    <input type="text" name="text" id="find-product-input" placeholder="Phone">
+    <button type="submit" class="find-product-btn">Искать товар!</button>
+  </form>
+  <ul class="result-of-finding-products"></ul>
+  <script src="index.js"></script>
 </body>
-<script src="index.js"></script>
-
 </html>
