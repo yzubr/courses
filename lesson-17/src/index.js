@@ -1,4 +1,4 @@
-async function getTodos() {
+async function getTodosFromAPI() {
   const response = await fetch('https://dummyjson.com/todos?limit=3')
   const todos = await response.json()
 
@@ -7,32 +7,46 @@ async function getTodos() {
 
 const toDoList = document.querySelector('.todo-list')
 
+async function updateToDos(event) {
+  const toDoId = event.target.id.replace('checkbox-', '')
+  const completed = event.target.checked
+  const response = await fetch(`https://dummyjson.com/todos/${toDoId}`, {
+    method: 'PATCH',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      completed: true
+    })
+  })
+  console.log(await response.json())
+  localStorage.removeItem(`todo-${toDoId}`)
+  localStorage.setItem(`todo-${toDoId}`, JSON.stringify(await response.json()))
+}
+
 function makeToDoHTML(toDoArray) {
   toDoArray.forEach((toDoItem) => {
     const toDoBlock = document.createElement('div')
-    if (toDoItem.completed === true) {
+    if (toDoItem.completed) {
       toDoBlock.innerHTML = `
-    <p>${toDoItem.todo}</p>
-    <input type = "checkbox" class="checkbox" id = 'checkbox-${toDoItem.id}' checked name = "completed">
-     <label for="checkbox-${toDoItem.id}">Completed</label>`
+      <label for="checkbox-${toDoItem.id}">${toDoItem.todo}</label>
+      <input type="checkbox" class="checkbox" id = "checkbox-${toDoItem.id}" checked name="todo-${toDoItem.id}">
+     `
     } else {
       toDoBlock.innerHTML = `
-    <p>${toDoItem.todo}</p>
-    <input type = "checkbox" class = "checkbox" id = "checkbox-${toDoItem.id}" name = "noncompleted">
-    <label for="checkbox-${toDoItem.id}">Noncompleted</label> `
+      <label for="checkbox-${toDoItem.id}">${toDoItem.todo}</label> 
+      <input type ="checkbox" class ="checkbox" id ="checkbox-${toDoItem.id}"name ="todo-${toDoItem.id}">
+      `
     }
     toDoList.appendChild(toDoBlock)
+    document.querySelector(`#checkbox-${toDoItem.id}`).addEventListener('change', updateToDos)
+    // console.log(document.querySelector(`#checkbox-${toDoItem.id}`))
   })
 }
 
 async function getToDos() {
-  if (window.localStorage.length) {
+  if (localStorage.getItem('todos')) {
     makeToDoHTML(JSON.parse(window.localStorage.getItem('todos')))
   } else {
-    const toDoArray = await getTodos()
-    toDoArray.forEach((toDoElement) => {
-      localStorage.setItem(`todo-${toDoElement.id}`, JSON.stringify(toDoElement))
-    })
+    const toDoArray = await getTodosFromAPI()
     localStorage.setItem('todos', JSON.stringify(toDoArray))
     makeToDoHTML(toDoArray)
   }
@@ -40,14 +54,7 @@ async function getToDos() {
 
 await getToDos()
 
-const checkbox = document.getElementsByClassName('checkbox')
-function addListnerToCheckbox(checkbox) {
-  Array.from(checkbox).forEach((element) => element.addEventListener('click', async (event) => await updateToDos(event.target)))
-}
-
-addListnerToCheckbox(checkbox)
-
-async function fetchNewToDo(toDo) {
+async function addNewToDo(toDo) {
   const response = await fetch('https://dummyjson.com/todos/add', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -64,31 +71,22 @@ async function fetchNewToDo(toDo) {
 const addNewToDoForm = document.querySelector('.addNewToDo-form')
 addNewToDoForm.addEventListener('submit', async (event) => {
   event.preventDefault()
-  const newToDo = await fetchNewToDo(document.querySelector('#NewToDo').value)
-  localStorage.setItem(`todo-${newToDo.id}`, JSON.stringify(newToDo))
+  const newToDo = await addNewToDo(document.querySelector('#addNewToDo-field').value)
+  console.log(newToDo)
+  // сейчас идет костыль для записи в localStorage, потому что у нас не API, а его эмуляция
+  const localStorageToDoArray = JSON.parse(localStorage.getItem('todos'))
+  localStorageToDoArray.push({ ...newToDo, id: localStorageToDoArray.length + 1 })
+  localStorage.setItem('todos', JSON.stringify(localStorageToDoArray))
+  console.log(localStorage.getItem('todos'))
+  // конец костыля
   const toDoBlock = document.createElement('div')
   toDoBlock.innerHTML = `
-    <p>${document.querySelector('#NewToDo').value}</p>
-    <input type = "checkbox" class = "checkbox" id = 'checkbox-${newToDo.id}' name = "noncompleted">
-    <label for="checkbox-${newToDo.id}">Noncompleted</label>`
+    <label for="checkbox-${newToDo.id}">${document.querySelector('#addNewToDo-field').value}</label>
+    <input type = "checkbox" class = "checkbox" id ='checkbox-${newToDo.id}' name ="todo-${newToDo.id}">
+    `
   toDoList.appendChild(toDoBlock)
-  addListnerToCheckbox(checkbox)
+  document.querySelector(`#checkbox-${newToDo.id}`).addEventListener('change', updateToDos)
 })
-
-async function updateToDos(event) {
-  if (event.checked) {
-    const response = await fetch(`https://dummyjson.com/todos/${event.id.replace('checkbox-', '')}`, {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        completed: true
-      })
-    })
-    console.log(await response.json())
-    localStorage.removeItem(`todo-${event.id.replace('checkbox-', '')}`)
-    localStorage.setItem(`todo-${event.id.replace('checkbox-', '')}`, JSON.stringify(await response.json()))
-  }
-}
 
 // функционал очищающий localStorage и удаляющий задачи со страницы
 
