@@ -17,6 +17,7 @@ h1 {
 }
 
 .button {
+  padding: 5px 10px;
   cursor: pointer;
   border: solid rgb(255 255 255) 1px;
 }
@@ -25,6 +26,7 @@ h1 {
   display: flex;
   flex-flow: column wrap;
   gap: 25px;
+  padding: 15px;
   border: double 1px rgb(255 255 255);
 }
 

@@ -9,17 +9,19 @@ const toDoList = document.querySelector('.todo-list')
 
 async function updateToDos(event) {
   const toDoId = event.target.id.replace('checkbox-', '')
-  const completed = event.target.checked
+  const completedStatus = event.target.checked
   const response = await fetch(`https://dummyjson.com/todos/${toDoId}`, {
     method: 'PATCH',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      completed: true
+      completed: completedStatus
     })
   })
-  console.log(await response.json())
-  localStorage.removeItem(`todo-${toDoId}`)
-  localStorage.setItem(`todo-${toDoId}`, JSON.stringify(await response.json()))
+  const updatedTodo = await response.json()
+  console.log(updatedTodo)
+  const localStorageToDoArray = JSON.parse(localStorage.getItem('todos'))
+  localStorageToDoArray[updatedTodo.id - 1].completed = completedStatus
+  localStorage.setItem('todos', JSON.stringify(localStorageToDoArray))
 }
 
 function makeToDoHTML(toDoArray) {
@@ -38,7 +40,7 @@ function makeToDoHTML(toDoArray) {
     }
     toDoList.appendChild(toDoBlock)
     document.querySelector(`#checkbox-${toDoItem.id}`).addEventListener('change', updateToDos)
-    // console.log(document.querySelector(`#checkbox-${toDoItem.id}`))
+    console.log(document.querySelector(`#checkbox-${toDoItem.id}`))
   })
 }
 
@@ -74,8 +76,11 @@ addNewToDoForm.addEventListener('submit', async (event) => {
   const newToDo = await addNewToDo(document.querySelector('#addNewToDo-field').value)
   console.log(newToDo)
   // сейчас идет костыль для записи в localStorage, потому что у нас не API, а его эмуляция
-  const localStorageToDoArray = JSON.parse(localStorage.getItem('todos'))
-  localStorageToDoArray.push({ ...newToDo, id: localStorageToDoArray.length + 1 })
+  const localStorageToDoArray = localStorage.getItem('todos')
+    ? JSON.parse(localStorage.getItem('todos'))
+    : []
+  newToDo.id = localStorageToDoArray.length + 1
+  localStorageToDoArray.push(newToDo)
   localStorage.setItem('todos', JSON.stringify(localStorageToDoArray))
   console.log(localStorage.getItem('todos'))
   // конец костыля
@@ -84,6 +89,7 @@ addNewToDoForm.addEventListener('submit', async (event) => {
     <label for="checkbox-${newToDo.id}">${document.querySelector('#addNewToDo-field').value}</label>
     <input type = "checkbox" class = "checkbox" id ='checkbox-${newToDo.id}' name ="todo-${newToDo.id}">
     `
+  toDoList.innerHTML = ''
   toDoList.appendChild(toDoBlock)
   document.querySelector(`#checkbox-${newToDo.id}`).addEventListener('change', updateToDos)
 })
@@ -91,6 +97,8 @@ addNewToDoForm.addEventListener('submit', async (event) => {
 // функционал очищающий localStorage и удаляющий задачи со страницы
 
 document.querySelector('.delete-button').addEventListener('click', () => {
-  window.localStorage.clear()
-  toDoList.innerHTML = ''
+  window.localStorage.removeItem('todos')
+  toDoList.innerHTML = `
+  <p>Start creating your ToDO list</p>
+  `
 })
