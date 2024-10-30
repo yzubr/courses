@@ -17,6 +17,9 @@ importers:
       eslint:
         specifier: ^8.57.1
         version: 8.57.1
+      stylelint:
+        specifier: ^16.10.0
+        version: 16.10.0
 
 packages:
 
