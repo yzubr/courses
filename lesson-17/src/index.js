@@ -89,7 +89,6 @@ addNewToDoForm.addEventListener('submit', async (event) => {
     <label for="checkbox-${newToDo.id}">${document.querySelector('#addNewToDo-field').value}</label>
     <input type = "checkbox" class = "checkbox" id ='checkbox-${newToDo.id}' name ="todo-${newToDo.id}">
     `
-  toDoList.innerHTML = ''
   toDoList.appendChild(toDoBlock)
   document.querySelector(`#checkbox-${newToDo.id}`).addEventListener('change', updateToDos)
 })
@@ -99,6 +98,6 @@ addNewToDoForm.addEventListener('submit', async (event) => {
 document.querySelector('.delete-button').addEventListener('click', () => {
   window.localStorage.removeItem('todos')
   toDoList.innerHTML = `
-  <p>Start creating your ToDO list</p>
+  <p class='greeting-text'>Start creating your ToDO list</p>
   `
 })
