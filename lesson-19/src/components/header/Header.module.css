@@ -1,0 +1,9 @@
+.navigation {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+}
+
+.navigation-item {
+  border-bottom: 2px solid orange;
+}
