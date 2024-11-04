@@ -1,6 +1,7 @@
 import styles from './App.module.css'
 import Header from '../header/Header.jsx'
 import Footer from '../footer/Footer.jsx'
+
 export default function Section() {
   return (
     <>
