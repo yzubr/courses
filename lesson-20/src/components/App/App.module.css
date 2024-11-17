@@ -1,0 +1,36 @@
+h1 {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+ul {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+}
+
+.separator {
+  position: relative;
+  margin: 20px 0;
+  font-weight: bold;
+  text-align: center;
+
+  &::before,
+  &::after {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    height: 1px;
+    content: "";
+    background: rgb(255 255 255);
+  }
+
+  &::before {
+    right: 60%;
+  }
+
+  &::after {
+    left: 60%;
+  }
+}
