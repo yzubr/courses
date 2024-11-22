@@ -4,6 +4,6 @@
   gap: 20px;
 }
 
-.navigation-item {
+.navigation li {
   border-bottom: 2px solid orange;
 }

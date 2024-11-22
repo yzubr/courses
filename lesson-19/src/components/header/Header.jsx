@@ -5,9 +5,9 @@ export default function Header() {
     <header>
       <nav>
         <ul className={styles.navigation}>
-          <li className={styles['navigation-item']}><a href="#">Главная</a></li>
-          <li className={styles['navigation-item']}><a href="#">Блог</a></li>
-          <li className={styles['navigation-item']}><a href="#">Контакты</a></li>
+          <li><a href="/">Главная</a></li>
+          <li><a href="/blog">Блог</a></li>
+          <li><a href="/contacts">Контакты</a></li>
         </ul>
       </nav>
     </header>
