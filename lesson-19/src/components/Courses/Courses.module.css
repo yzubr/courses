@@ -1,0 +1,52 @@
+.courses {
+  margin: 30px 0;
+}
+
+.courses h1 {
+  margin-bottom: 30px;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.courses-list {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+}
+
+.courses-list li {
+  display: flex;
+  flex-basis: calc((100% - 40px) / 3);
+  flex-flow: row wrap;
+}
+
+.course {
+  display: flex;
+  flex-flow: column nowrap;
+  min-height: 420px;
+  padding: 20px;
+  background-color: rgb(37 37 37);
+}
+
+.course header {
+  margin-bottom: 20px;
+}
+
+.course h2 {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.course address {
+  text-align: right;
+}
+
+.course img {
+  display: block;
+  margin-bottom: 20px;
+}
+
+.course footer {
+  margin-top: auto;
+  text-align: right;
+}
