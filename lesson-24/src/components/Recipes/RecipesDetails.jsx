@@ -17,27 +17,31 @@ export default function RecipeDetails({ recipeId }) {
     fetchRecipe()
   }, [recipeId])
 
+  if (!recipe) {
+    return null
+  }
+
   return (
-    recipe && (
-      <article className={styles['recipe-details']}>
+    <div className={styles.overlay}>
+      <article className={styles.recipeDetails}>
         <h2>{recipe.name}</h2>
-        <article>
+        <section>
           <h3>Ingredients</h3>
           <ul>
             {recipe.ingredients.map((ingredient) => (
               <li key={ingredient}>{ingredient}</li>
             ))}
           </ul>
-        </article>
-        <article>
+        </section>
+        <section>
           <h3>Instruction</h3>
           <ol>
             {recipe.instructions.map((instruction, index) => (
               <li key={index}>{instruction}</li>
             ))}
           </ol>
-        </article>
+        </section>
       </article>
-    )
+    </div>
   )
 }
