@@ -8,17 +8,17 @@ const fetcher = async () => {
 }
 
 export default function RecipesList({ updateSelectedRecipe }) {
-  const { data, error, isLoading } = useSWR('/api/user', fetcher)
+  const { data, error, isLoading } = useSWR('/api/recipes', fetcher)
 
   function handleButtonClick(id) {
     updateSelectedRecipe(id)
   }
 
   if (error) {
-    return <div>ошибка загрузки</div>
+    return <p>ошибка загрузки</p>
   }
   if (isLoading) {
-    return <div>загрузка...</div>
+    return <p>загрузка...</p>
   }
 
   if (data) {
