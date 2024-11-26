@@ -1,4 +1,3 @@
-// import styles from './CategoryItem.module.css'
 import { useState } from 'react'
 import RecipeDetails from './RecipesDetails.jsx'
 import RecipesList from './RecipesList.jsx'
@@ -6,13 +5,13 @@ import RecipesList from './RecipesList.jsx'
 export default function Recipes() {
   const [selectedRecipeId, setSelectedRecipeId] = useState(null)
 
-  function updateSelectedRecepie(id) {
+  function updateSelectedRecipe(id) {
     setSelectedRecipeId(id)
   }
 
   return (
     <>
-      <RecipesList updateSelectedRecepie={updateSelectedRecepie} />
+      <RecipesList updateSelectedRecipe={updateSelectedRecipe} />
       <RecipeDetails recipeId={selectedRecipeId} />
     </>
   )

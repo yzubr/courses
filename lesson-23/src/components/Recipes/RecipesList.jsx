@@ -1,8 +1,6 @@
-// import styles from './CategoryItem.module.css'
-
 import { useEffect, useState } from 'react'
 
-export default function RecipesList({ updateSelectedRecepie }) {
+export default function RecipesList({ updateSelectedRecipe }) {
   const [recipes, setRecipes] = useState(null)
 
   useEffect(() => {
@@ -17,7 +15,7 @@ export default function RecipesList({ updateSelectedRecepie }) {
   }, [])
 
   function handleButtonClick(id) {
-    updateSelectedRecepie(id)
+    updateSelectedRecipe(id)
   }
 
   return (

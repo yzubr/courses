@@ -1,5 +1,3 @@
-// import styles from './CategoryItem.module.css'
-
 import { useEffect, useState } from 'react'
 
 export default function RecipeDetails({ recipeId }) {
