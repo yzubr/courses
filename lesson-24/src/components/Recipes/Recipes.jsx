@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import styles from './Recipes.module.css'
 import RecipeDetails from './RecipesDetails.jsx'
 import RecipesList from './RecipesList.jsx'
 
@@ -11,7 +10,7 @@ export default function Recipes() {
   }
 
   return (
-    <section className={styles.recipes}>
+    <section>
       <RecipesList updateSelectedRecipe={updateSelectedRecipe} />
       <RecipeDetails recipeId={selectedRecipeId} />
     </section>
