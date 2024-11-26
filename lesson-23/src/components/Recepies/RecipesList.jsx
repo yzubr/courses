@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 
-export default function Recipes({ updateSelectedRecepie }) {
+export default function RecipesList({ updateSelectedRecepie }) {
   const [recipes, setRecipes] = useState(null)
 
   useEffect(() => {
@@ -21,16 +21,14 @@ export default function Recipes({ updateSelectedRecepie }) {
   }
 
   return (
-    <>
-      <ul>
-        {recipes && recipes.map((recipe) => (
-          <li key={recipe.id}>
-            <button type='button' onClick={() => handleButtonClick(recipe.id)}>
-              {recipe.name}
-            </button>
-          </li>))
-        }
-      </ul>
-    </>
+    <ul>
+      {recipes && recipes.map((recipe) => (
+        <li key={recipe.id}>
+          <button type="button" onClick={() => handleButtonClick(recipe.id)}>
+            {recipe.name}
+          </button>
+        </li>
+      ))}
+    </ul>
   )
 }

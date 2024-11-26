@@ -21,8 +21,7 @@ export default function RecipeDetails({ recipeId }) {
   return (
     <article>
       {recipe && (
-        <p>ingredients: {recipe.ingredients}
-        </p>
+        <p>ingredients: {recipe.ingredients}</p>
       )}
     </article>
   )
