@@ -5,16 +5,16 @@ import RecipeDetails from './RecipesDetails.jsx'
 import RecipesList from './RecipesList.jsx'
 
 export default function Recipes() {
-  const [selectedRecipeId, setSelectedRecepieId] = useState(null)
+  const [selectedRecipeId, setSelectedRecipeId] = useState(null)
 
-  function updateSelectedRecepie(id) {
-    setSelectedRecepieId(id)
+  function updateSelectedRecipe(id) {
+    setSelectedRecipeId(id)
   }
 
   return (
     <section className={styles.recipes}>
-      <RecipesList updateSelectedRecepie = {updateSelectedRecepie} />
-      <RecipeDetails recipeId={selectedRecipeId}/>
+      <RecipesList updateSelectedRecipe={updateSelectedRecipe} />
+      <RecipeDetails recipeId={selectedRecipeId} />
     </section>
   )
 }

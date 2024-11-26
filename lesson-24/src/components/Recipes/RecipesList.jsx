@@ -7,11 +7,11 @@ const fetcher = async () => {
   return recipesData.recipes
 }
 
-export default function RecipesList({ updateSelectedRecepie }) {
+export default function RecipesList({ updateSelectedRecipe }) {
   const { data, error, isLoading } = useSWR('/api/user', fetcher)
 
   function handleButtonClick(id) {
-    updateSelectedRecepie(id)
+    updateSelectedRecipe(id)
   }
 
   if (error) {
@@ -26,13 +26,12 @@ export default function RecipesList({ updateSelectedRecepie }) {
       <ul>
         {data.map((recipe) => (
           <li key={recipe.id}>
-            <button type='button' onClick={() => handleButtonClick(recipe.id)}>
+            <button type="button" onClick={() => handleButtonClick(recipe.id)}>
               {recipe.name}
             </button>
-          </li>))
-        }
+          </li>
+        ))}
       </ul>
-
     )
   }
 }
