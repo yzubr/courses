@@ -1,7 +1,7 @@
 import { createRoot } from 'react-dom/client'
 import 'the-new-css-reset'
-import App from './components/App.jsx'
 import './styles.css'
+import App from './components/App.jsx'
 
 const root = createRoot(document.getElementById('app'))
 
