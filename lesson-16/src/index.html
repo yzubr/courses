@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 16</title>
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <article class="block-changing">
+    <article>
+      <a href="" class="content-for-changing">Я содержимое которое нужно изменить</a>
+      <button type="button" id="change-content">Изменить содержимое</button>
+    </article>
+    <article>
+      <a href="" id="element-for-change">
+        <p>Мой родитель это элемент который нужно заменить на другой</p>
+      </a>
+      <button type="button" id="change-element">Заменить элемент</button>
+    </article>
+  </article>
+  <button type="button" id="accept-response">Задать вопрос и вывести ответ</button>
+  <form action="" method="get" id="form-4">
+    <label for="field-input">Напишите что-нибудь</label>
+    <input type="text" name="text" id="field-input" placeholder="Любой текст">
+    <button type="submit" id="#submit">Отправить</button>
+  </form>
+  <form action="" method="get" class="find-products">
+    <label for="find-product-input">Напишите название товара</label>
+    <input type="text" name="text" id="find-product-input" placeholder="Phone">
+    <button type="submit" class="find-product-btn">Искать товар!</button>
+  </form>
+  <ul class="result-of-finding-products"></ul>
+  <script src="index.js"></script>
+</body>
+</html>

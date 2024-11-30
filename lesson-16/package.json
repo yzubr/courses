@@ -1,0 +1,10 @@
+{
+  "name": "lesson-16",
+  "devDependencies": {
+    "@shcherbin/eslint-config-node": "^0.2.0",
+    "@shcherbin/stylelint-config": "^0.2.0",
+    "eslint": "^8.57.1",
+    "stylelint": "^16.10.0"
+  },
+  "private": true
+}

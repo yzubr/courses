@@ -1,0 +1,50 @@
+body {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 50px;
+  align-items: center;
+  justify-content: center;
+  font-family: Inter, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: rgb(255 255 255);
+  background-color: rgb(0 0 0);
+}
+
+.block-changing {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  padding: 20px 40px;
+  cursor: pointer;
+  border: solid rgb(255 255 255) 1px;
+}
+
+.block-changing > article {
+  max-width: 300px;
+  padding: 20px;
+}
+
+span {
+  font-weight: 700;
+}
+
+input {
+  color: rgb(0 0 0);
+  background-color: rgb(255 255 255);
+}
+
+input::placeholder {
+  color: rgb(67 63 63 / 50%);
+}
+
+.result-of-finding-products {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 1260px;
+}
