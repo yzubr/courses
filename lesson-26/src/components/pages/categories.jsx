@@ -1,15 +1,4 @@
-// import { Link } from 'react-router'
-
-// export default function Categories() {
-//   return (
-//     <>
-//       <h1>Category</h1>
-//       <Link to="/categories/create">Create a new caterory</Link>
-//     </>
-//   )
-// }
-import { Link } from 
-'react-router'
+import { Link } from 'react-router'
 import useSWR from 'swr'
 
 async function fetcher(url) {
