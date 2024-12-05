@@ -6,7 +6,7 @@ export default function Category() {
   const { slug } = useParams()
 
   const { data: category, error, isLoading } = useSWR(
-    `https://happy-store.vercel.app/api/categories/${slug}`,
+    `https://happy-store.spacehub.workers.dev/api/categories/slug/${slug}`,
     fetcher
   )
 

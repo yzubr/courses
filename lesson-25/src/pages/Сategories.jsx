@@ -4,7 +4,7 @@ import fetcher from '../utilities/fetcher.js'
 
 export default function Categories() {
   const { data: categories, error, isLoading } = useSWR(
-    'https://happy-store.vercel.app/api/categories',
+    'https://happy-store.spacehub.workers.dev/api/categories',
     fetcher
   )
 
