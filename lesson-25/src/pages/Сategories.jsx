@@ -1,11 +1,6 @@
 import { Link } from 'react-router'
 import useSWR from 'swr'
-
-async function fetcher(url) {
-  const response = await fetch(url)
-
-  return await response.json()
-}
+import fetcher from '../utilities/fetcher.js'
 
 export default function Categories() {
   const { data: categories, error, isLoading } = useSWR(
