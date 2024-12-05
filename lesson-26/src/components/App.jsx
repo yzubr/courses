@@ -1,10 +1,10 @@
 import { BrowserRouter, Route, Routes } from 'react-router'
+import Categories from '../pages/Categories.jsx'
+import Category from '../pages/Category.jsx'
+import CreateCategory from '../pages/CreateCategory.jsx'
+import EditCategory from '../pages/EditCategory.jsx'
+import Home from '../pages/Home.jsx'
 import Layout from './Layout.jsx'
-import Categories from './pages/Categories.jsx'
-import Category from './pages/Category.jsx'
-import CreateCategory from './pages/CreateCategory.jsx'
-import EditCategory from './pages/EditCategory.jsx'
-import Home from './pages/Home.jsx'
 
 export default function App() {
   return (
