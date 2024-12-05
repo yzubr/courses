@@ -28,7 +28,7 @@ export default function Category() {
       <title>{slug}</title>
       <h1>category - {slug}</h1>
       <h2>category details</h2>
-      {Object.entries(category).map(([key, value]) => <p key = {category.id}>{key}:{value}</p>)}
+      {Object.entries(category).map(([key, value]) => <p key={category.id}>{key}:{value}</p>)}
     </>
   )
 }
