@@ -6,12 +6,13 @@ export default function Layout() {
       <header>
         <nav>
           <ul>
-            <li><Link to='/'>home</Link></li>
-            <li><Link to='/categories'>categories</Link></li>
+            <li><Link to="/">home</Link></li>
+            <li><Link to="/categories">categories</Link></li>
           </ul>
         </nav>
       </header>
       <Outlet />
-      <footer></footer>
-    </>)
+      <footer />
+    </>
+  )
 }
