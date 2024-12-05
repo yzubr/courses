@@ -1,11 +1,6 @@
 import { Link, useParams } from 'react-router'
 import useSWR from 'swr'
-
-async function fetcher(url) {
-  const response = await fetch(url)
-
-  return response.json()
-}
+import fetcher from '../utilities/fetcher.js'
 
 export default function Category() {
   const { slug } = useParams()
