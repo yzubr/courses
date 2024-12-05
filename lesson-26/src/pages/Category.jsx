@@ -25,7 +25,7 @@ export default function Category() {
       <h2>category details</h2>
       <ul>
         {Object.entries(category).map(([key, value]) => (
-          <li key={key}>{key}:{value}</li>
+          <li key={key}>{key}: {value}</li>
         ))}
       </ul>
       <Link to={`/categories/${slug}/edit`}>Edit category</Link>
