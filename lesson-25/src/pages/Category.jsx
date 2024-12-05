@@ -20,10 +20,14 @@ export default function Category() {
 
   return (
     <>
-      <title>{slug}</title>
-      <h1>category - {slug}</h1>
+      <title>{category.name}</title>
+      <h1>{category.name}</h1>
       <h2>category details</h2>
-      {Object.entries(category).map(([key, value]) => <p key={category.id}>{key}:{value}</p>)}
+      <ul>
+        {Object.entries(category).map(([key, value]) => (
+          <li key={key}>{key}: {value}</li>
+        ))}
+      </ul>
     </>
   )
 }
