@@ -13,14 +13,14 @@ export default function EditCategory() {
   const navigate = useNavigate()
 
   const { data: category, error, isLoading } = useSWR(
-    `https://happy-store.vercel.app/api/categories/${slug}`,
+    `https://happy-store.spacehub.workers.dev/api/categories/slug/${slug}`,
     fetcher
   )
 
   const [, submitAction, isPending] = useActionState(
     async (_, formData) => {
       if (formData.get('name').length && formData.get('slug').length) {
-        const responce = await fetch(`https://happy-store.vercel.app/api/categories/${category.id}`, {
+        const responce = await fetch(`https://happy-store.spacehub.workers.dev/api/categories/${category.id}`, {
           body: JSON.stringify({
             name: formData.get('name'),
             slug: formData.get('slug')

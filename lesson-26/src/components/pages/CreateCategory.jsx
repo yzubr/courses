@@ -6,7 +6,7 @@ export default function CreateCategory() {
   const [, submitAction, isPending] = useActionState(
     async (_, formData) => {
       if (formData.get('name').length && formData.get('slug').length) {
-        const responce = await fetch('https://happy-store.vercel.app/api/categories', {
+        const responce = await fetch('https://happy-store.spacehub.workers.dev/api/categories', {
           body: JSON.stringify({
             name: formData.get('name'),
             slug: formData.get('slug')
