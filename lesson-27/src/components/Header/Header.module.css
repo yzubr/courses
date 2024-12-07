@@ -1,0 +1,24 @@
+.header {
+  display: grid;
+  justify-content: center;
+  padding: 24px;
+
+  nav {
+    padding-bottom: 24px;
+    border-bottom: 1px solid #2a2a28;
+  }
+
+  ul {
+    display: flex;
+    flex-flow: row nowrap;
+    column-gap: 128px;
+  }
+
+  li:hover {
+    text-decoration: 1px underline dotted rgb(255 255 255);
+  }
+}
+
+.is-active {
+  text-decoration: 1px underline rgb(255 255 255);
+}
