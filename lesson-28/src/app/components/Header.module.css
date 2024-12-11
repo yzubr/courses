@@ -1,0 +1,13 @@
+.header {
+  padding: 32px;
+}
+
+.header ul {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 32px;
+}
+
+.header ul>li {
+  cursor: pointer;
+}
