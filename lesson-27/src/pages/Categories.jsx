@@ -21,16 +21,14 @@ export default function Categories() {
     <>
       <title>Categories</title>
       <h1>Categories</h1>
-      <ul className={styles.listOfCategories}>
+      <ul className={styles.categoriesList}>
         {categories.map((category) => (
           <li key={category.id}>
             <Link to={`/categories/${category.slug}`}>{category.name}</Link>
           </li>
         ))}
       </ul>
-      <button type="button">
-        <Link to="/categories/create">Create a new caterory</Link>
-      </button>
+      <Link to="/categories/create">Create a new caterory</Link>
     </>
   )
 }

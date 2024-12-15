@@ -1,4 +1,4 @@
-import { useActionState, useState } from 'react'
+import { useActionState } from 'react'
 import { useNavigate, useParams } from 'react-router'
 import useSWR from 'swr'
 import { flatten, minLength, object, pipe, safeParse, string } from 'valibot'
@@ -16,14 +16,14 @@ const schema = object({
 })
 
 export default function EditCategory() {
-  const [errors, setErrors] = useState({})
+  // const [errors, setErrors] = useState({})
   const { slug: paramSlug } = useParams()
   const navigate = useNavigate()
   const { data: category, error, isLoading } = useSWR(
     `https://happy-store.spacehub.workers.dev/api/categories/slug/${paramSlug}`,
     fetcher
   )
-  const [, submitAction, isPending] = useActionState(
+  const [errors, submitAction, isPending] = useActionState(
     async (_, formData) => {
       const name = formData.get('name')
       const slug = formData.get('slug')
@@ -42,17 +42,19 @@ export default function EditCategory() {
           navigate(`/categories/${output.slug}`)
         } else {
           const serverError = await response.json()
-          const serverErrorMessage = serverError.detail
-          setErrors({ server: serverErrorMessage })
+          if (serverError.errors) {
+            return serverError.errors
+          }
+
+          return { server: serverError.detail }
         }
-      } if (issues) {
-        const errorMessages = Object.fromEntries(
-          Object.entries(flatten(issues).nested).map(([field, [error]]) => ([field, error]))
-        )
-        setErrors(errorMessages)
-      }
+      } const errorMessages = Object.fromEntries(
+        Object.entries(flatten(issues).nested).map(([field, [validationError]]) => ([field, validationError]))
+      )
+
+      return errorMessages
     },
-    null
+    {}
   )
 
   if (isLoading) {
@@ -68,16 +70,16 @@ export default function EditCategory() {
       <title>Edit category</title>
       <h1>Edit category</h1>
       <form action={submitAction}>
-        {errors.server && (<p>{errors.server}</p>)}
+        {errors.server && <p>{errors.server}</p>}
         <div>
           <label htmlFor="name">Edit Name</label>
           <input type="text" name="name" id="name" defaultValue={category.name} />
-          {errors.name && (<p>{errors.name}</p>)}
+          {errors.name && <p>{errors.name}</p>}
         </div>
         <div>
           <label htmlFor="slug">Edit Slug</label>
           <input type="text" name="slug" id="slug" defaultValue={category.slug} />
-          {errors.slug && (<p>{errors.slug}</p>)}
+          {errors.slug && <p>{errors.slug}</p>}
         </div>
         <button type="submit" disabled={isPending}>Edit category</button>
       </form>

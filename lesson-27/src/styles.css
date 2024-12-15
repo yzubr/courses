@@ -11,8 +11,8 @@ h1 {
   margin-bottom: 8px;
   font-size: 18px;
   font-weight: 700;
+  text-align: center;
 }
-
 
 main {
   display: grid;
@@ -21,24 +21,13 @@ main {
   h1 {
     text-align: center;
   }
-}
 
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  max-width: 320px;
-
-  div {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-
-    input {
-      padding: 6px 16px;
-      border: 1px dotted rgb(255 255 255);
-      border-radius: 4px;
-    }
+  a {
+    padding: 6px 16px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid rgb(255 255 255);
+    border-radius: 4px;
   }
 }
 
@@ -48,4 +37,40 @@ button {
   cursor: pointer;
   border: 1px solid rgb(255 255 255);
   border-radius: 4px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  padding: 24px;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    label {
+      text-align: center;
+    }
+
+    input {
+      border: dotted 1px rgb(255 255 255);
+    }
+  }
+
+  button,
+  a {
+    width: fit-content;
+    padding: 5px 15px;
+    cursor: pointer;
+    border: solid 1px rgb(255 255 255);
+    border-radius: 5px;
+  }
+}
+
+.error {
+  font-style: italic;
+  border: 4px double;
 }

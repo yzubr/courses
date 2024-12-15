@@ -1,4 +1,4 @@
-import { useActionState, useState } from 'react'
+import { useActionState } from 'react'
 import { useNavigate } from 'react-router'
 import { flatten, minLength, object, pipe, safeParse, string } from 'valibot'
 
@@ -15,15 +15,14 @@ const schema = object({
 
 export default function CreateCategory() {
   const navigate = useNavigate()
-  const [errors, setErrors] = useState({})
-  const [, submitAction, isPending] = useActionState(
+  const [error, submitAction, isPending] = useActionState(
     async (_, formData) => {
       const name = formData.get('name')
       const slug = formData.get('slug')
       const { issues, output: data, success } = safeParse(schema, { name, slug })
 
       if (success) {
-        const responce = await fetch('https://happy-store.spacehub.workers.dev/api/categories', {
+        const response = await fetch('https://happy-store.spacehub.workers.dev/api/categories', {
           body: JSON.stringify({
             name: data.name,
             slug: data.slug
@@ -32,16 +31,21 @@ export default function CreateCategory() {
           method: 'POST'
         })
 
-        if (responce.ok) {
+        if (response.ok) {
           navigate('/categories')
+        } else {
+          const serverError = await response.json()
+
+          return serverError.errors
         }
       }
       const errorMessages = Object.fromEntries(
-        Object.entries(flatten(issues).nested).map(([field, [error]]) => ([field, error]))
+        Object.entries(flatten(issues).nested).map(([field, [validationError]]) => ([field, validationError]))
       )
-      setErrors(errorMessages)
+
+      return errorMessages
     },
-    null
+    {}
   )
 
   return (
@@ -52,12 +56,12 @@ export default function CreateCategory() {
         <div>
           <label htmlFor="name">Name</label>
           <input type="text" name="name" id="name" />
-          {errors.name && (<p>{errors.name}</p>)}
+          {error.name && <p className="error">{error.name}</p>}
         </div>
         <div>
           <label htmlFor="slug">Slug</label>
           <input type="text" name="slug" id="slug" />
-          {errors.slug && (<p>{errors.slug}</p>)}
+          {error.slug && <p className="error">{error.slug}</p>}
         </div>
         <button type="submit" disabled={isPending}>Create category</button>
       </form>

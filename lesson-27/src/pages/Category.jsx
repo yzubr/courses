@@ -28,9 +28,7 @@ export default function Category() {
           <li key={key}>{key}: {value}</li>
         ))}
       </ul>
-      <button type="button">
-        <Link to={`/categories/${slug}/edit`}>Edit category</Link>
-      </button>
+      <Link to={`/categories/${slug}/edit`}>Edit category</Link>
     </>
   )
 }

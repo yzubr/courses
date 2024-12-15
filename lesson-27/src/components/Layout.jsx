@@ -5,8 +5,9 @@ export default function Layout() {
   return (
     <>
       <Header />
-      <main><Outlet /></main>
-      <footer />
+      <main>
+        <Outlet />
+      </main>
     </>
   )
 }
