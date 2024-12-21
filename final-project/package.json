@@ -1,0 +1,32 @@
+{
+  "name": "plants-shop",
+  "scripts": {
+  "dev": "next dev",
+  "build": "next build",
+  "start": "next start",
+  "lint": "next lint"
+},
+  "dependencies": {
+  "next": "^15.0.3",
+  "react": "19.0.0-rc.1",
+  "react-dom": "19.0.0-rc.1",
+  "the-new-css-reset": "^1.11.3",
+  "valibot": "1.0.0-beta.9"
+},
+"devDependencies": {
+  "@shcherbin/eslint-config": "^0.15.7",
+    "@shcherbin/stylelint-config": "^0.2.0",
+  "@types/react": "npm:types-react@19.0.0-rc.1",
+  "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
+  "eslint": "^9.17.0",
+  "stylelint": "^16.12.0"
+},
+"pnpm": {
+  "overrides": {
+    "next>react": "$react",
+    "next>react-dom": "$react-dom"
+  }
+},
+"type":"module",
+"private":"true"
+}
