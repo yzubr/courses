@@ -1,0 +1,34 @@
+{
+  "name": "lesson-32",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "lint:js": "eslint",
+    "lint:css": "stylelint '**/*.css'"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "kysely": "^0.27.5",
+    "next": "^15.1.2",
+    "pg": "^8.13.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "the-new-css-reset": "^1.11.3",
+    "valibot": "1.0.0-beta.9"
+  },
+  "devDependencies": {
+    "@shcherbin/eslint-config": "^0.15.7",
+    "@shcherbin/stylelint-config": "^0.2.0",
+    "@types/node": "^22.12.0",
+    "@types/pg": "^8.11.10",
+    "@types/react": "^19.0.2",
+    "@types/react-dom": "^19.0.2",
+    "eslint": "^9.17.0",
+    "stylelint": "^16.12.0",
+    "typescript": "^5.7.2"
+  },
+  "type": "module",
+  "private": true
+}
