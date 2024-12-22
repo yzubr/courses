@@ -1,13 +1,18 @@
 .header {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
   padding-top: 25px;
 
-  ul {
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 32px;
+  & nav {
+    & ul {
+      display: flex;
+      flex-flow: row nowrap;
+      gap: 50px;
 
-    li {
-      cursor: pointer;
+      & li {
+        cursor: pointer;
+      }
     }
   }
 }
