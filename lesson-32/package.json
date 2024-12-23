@@ -21,7 +21,7 @@
   "devDependencies": {
     "@shcherbin/eslint-config": "^0.15.7",
     "@shcherbin/stylelint-config": "^0.2.0",
-    "@types/node": "^22.12.0",
+    "@types/node": "^22.10.2",
     "@types/pg": "^8.11.10",
     "@types/react": "^19.0.2",
     "@types/react-dom": "^19.0.2",

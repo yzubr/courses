@@ -1,6 +1,6 @@
+import Header from '@/app/(app)/components/Header'
 import 'the-new-css-reset'
 import './style/app.css'
-import Header from './components/Header.jsx'
 
 export default function RootLayout({ children }) {
   return (

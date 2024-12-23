@@ -33,7 +33,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-  ],
+, "src/action/create-category.js", "src/app/(admin)/admin/components/ModalCreateCategory.jsx", "src/app/(admin)/admin/categories/page.jsx", "src/app/(admin)/admin/components/CategoryEditButton.jsx", "src/action/edit-category-by-id.js"  ],
   "exclude": [
     "node_modules"
   ]
