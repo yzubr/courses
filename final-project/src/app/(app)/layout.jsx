@@ -1,6 +1,6 @@
 import 'the-new-css-reset'
-import './style/app.css'
-import Header from './components/Header.jsx'
+import '../../style/app.css'
+import Header from '../../components/Header.jsx'
 
 export default function RootLayout({ children }) {
   return (
@@ -10,6 +10,7 @@ export default function RootLayout({ children }) {
         <main>
           {children}
         </main>
+
       </body>
     </html>
   )

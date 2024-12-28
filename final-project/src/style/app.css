@@ -1,6 +1,7 @@
 body {
-  padding: 24px;
-  font-family: "PT Sans", serif;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: "Cera Pro", serif;
   font-size: 15px;
   line-height: 16px;
   color: rgb(0 0 0);
