@@ -53,3 +53,41 @@
   background-color: rgb(70 163 88 / 100%);
   border-radius: 6px;
 }
+
+.products-section {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 50px;
+
+  & h3 {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 16px;
+    color: rgb(61 61 61);
+  }
+
+  & button {
+    font-size: 15px;
+    line-height: 40px;
+    color: rgb(61 61 61);
+    cursor: pointer;
+  }
+
+  & aside {
+    padding: 14px 16px;
+    background: rgb(251 251 251);
+  }
+
+  & header {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+
+    & ul {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 40px;
+    }
+  }
+}

@@ -1,5 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import ListOfCategories from '@/components/ListOfCategories'
+// import Products from '@/components/Products/Products.jsx'
 import BeachSpiderLily from '../../assets/images/BeachSpiderLily.png'
 import style from './Page.module.css'
 
@@ -10,8 +12,8 @@ export default function Page() {
         <div className={style['greeting-section-text-block']}>
           <h2>Welcome to GreenShop</h2>
           <h1>
-            Let’s Make a
-            Better
+            Let’s Make a Better
+            {/* */}
             <span> Planet</span>
           </h1>
           <p>
@@ -24,14 +26,16 @@ export default function Page() {
         <Image src={BeachSpiderLily} alt="Beach Spider Lily" placeholder="blur" width={507} height={550} />
       </section>
       <section className={style['products-section']}>
-        {/* <aside>
-          <Category />
-        </aside> */}
+        <aside>
+          <ListOfCategories />
+        </aside>
         <article>
-          <ul>
-            <button type="button">All Plants</button>
-            <button type="button">New Arrivals</button>
-            <button type="button">Sale</button>
+          <header>
+            <ul>
+              <button type="button">All Plants</button>
+              <button type="button">New Arrivals</button>
+              <button type="button">Sale</button>
+            </ul>
             <form>
               <label htmlFor="sort-select">Sort by: </label>
               <select name="sort" id="sort-select">
@@ -40,7 +44,10 @@ export default function Page() {
                 <option value="Price (highest first)">Price (highest first)</option>
               </select>
             </form>
-          </ul>
+          </header>
+          <article>
+            {/* <Products /> */}
+          </article>
         </article>
       </section>
     </>
