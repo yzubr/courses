@@ -1,0 +1,16 @@
+body {
+  font-family: "Inter Variable", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: oklch(95% 1% 106deg);
+  background-color: oklch(18% 1% 106deg);
+}
+
+a:not(.button) {
+  border-bottom: 1px dotted oklch(97% 46% 109deg);
+  transition: color 0.3s;
+
+  /* &:hover {
+    color: oklch(97% 46% 109deg);
+  } */
+}

@@ -1,0 +1,19 @@
+.layout {
+  display: grid;
+  grid-template-columns: 240px 480px;
+  min-height: 100svh;
+}
+
+.header {
+  padding: 24px;
+  border-right: 1px solid oklch(35% 1% 89deg);
+
+  & ul {
+    display: grid;
+    row-gap: 12px;
+  }
+}
+
+.contents {
+  padding: 24px;
+}
