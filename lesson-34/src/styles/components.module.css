@@ -1,0 +1,140 @@
+.highlight {
+  color: oklch(90% 42% 102deg);
+}
+
+.error {
+  margin-bottom: 12px;
+  color: oklch(78% 41% 36deg);
+}
+
+.header {
+  display: grid;
+  grid-auto-flow: column;
+  column-gap: 48px;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 24px;
+
+  & h1 {
+    font-size: 18px;
+    font-weight: 600;
+  }
+}
+
+.input {
+  margin-bottom: 12px;
+
+  & input {
+    width: 100%;
+    padding: 8px 16px;
+    border: 1px solid oklch(35% 1% 89deg);
+    border-radius: 6px;
+    transition: border-color 0.3s;
+
+    &:hover,
+    &:focus {
+      border-color: oklch(90% 42% 102deg);
+    }
+
+    &::placeholder {
+      color: oklch(58% 3% 99deg);
+    }
+  }
+}
+
+.select {
+  margin-bottom: 12px;
+
+  & select {
+    width: 100%;
+    padding: 8px 16px;
+    cursor: pointer;
+    border: 1px solid oklch(35% 1% 89deg);
+    border-radius: 6px;
+    transition: border-color 0.3s;
+
+    &:hover,
+    &:focus {
+      border-color: oklch(90% 42% 102deg);
+    }
+  }
+}
+
+.button {
+  width: 100%;
+  padding: 8px 16px;
+  text-align: center;
+  cursor: pointer;
+  background-color: oklch(25% 1% 106deg);
+  border-radius: 6px;
+  transition: background-color 0.3s, color 0.3s;
+
+  &:hover,
+  &:focus {
+    color: oklch(18% 1% 106deg);
+    background-color: oklch(97% 46% 109deg);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+.grid {
+  display: grid;
+  row-gap: 24px;
+
+  & h2 {
+    margin-bottom: 12px;
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  & img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+
+  & article {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    height: 100%;
+
+    & div {
+      display: flex;
+      flex-flow: column nowrap;
+      gap: 16px;
+    }
+
+    & .imageContainer {
+      position: relative;
+
+      & .favouriteButton {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        z-index: 100;
+        width: 20px;
+        height: 20px;
+
+        & :hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  & img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+  }
+}
