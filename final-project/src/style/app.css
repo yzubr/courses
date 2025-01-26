@@ -1,0 +1,9 @@
+body {
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: "Cera Pro", serif;
+  font-size: 15px;
+  line-height: 16px;
+  color: rgb(61 61 61);
+  background-color: rgb(255 255 255);
+}

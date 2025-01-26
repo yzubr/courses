@@ -1,0 +1,93 @@
+.greeting-section {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  margin: 12px 0 26px;
+  background: linear-gradient(97.77deg, rgb(245 245 245 / 50%) -23.46%, rgb(245 245 245 / 50%) 107.51%);
+
+  .greeting-section-text-block {
+    max-width: 530px;
+    padding-top: 68px;
+    padding-left: 43px;
+  }
+
+  & h2 {
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px;
+    color: rgb(61 61 61);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  & h1 {
+    margin-bottom: 10px;
+    font-size: 70px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 70px;
+    color: rgb(61 61 61);
+    text-transform: uppercase;
+  }
+
+  & span {
+    color: rgb(70 163 88);
+  }
+
+  & p {
+    margin-bottom: 44px;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    color: rgb(114 114 114);
+  }
+}
+
+.button {
+  padding: 10px 27px;
+  color: rgb(255 255 255);
+  text-transform: uppercase;
+  background-color: rgb(70 163 88 / 100%);
+  border-radius: 6px;
+}
+
+.products-section {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 50px;
+
+  & h3 {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 16px;
+    color: rgb(61 61 61);
+  }
+
+  & button {
+    font-size: 15px;
+    line-height: 40px;
+    color: rgb(61 61 61);
+    cursor: pointer;
+  }
+
+  & aside {
+    padding: 14px 16px;
+    background: rgb(251 251 251);
+  }
+
+  & header {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+
+    & ul {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 40px;
+    }
+  }
+}
